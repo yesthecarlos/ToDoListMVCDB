@@ -7,11 +7,19 @@
 
 <h1>Items</h1>
 
-<ul>
-  @foreach(Item item in Model)
-  {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</li>
-  }
-</ul>
+@if (@Model.Count == 0)
+{
+  <h3>No items have been added yet!</h3>
+} 
+
+
+@foreach (Item item in Model.OrderBy(d=>d.DueDate))
+{
+  <li>@Html.ActionLink($"{item.Description} " + $"||  {item.DueDate}", "Details", new { id = item.ItemId })
+  <input type = "checkbox" checked = "**true or false?**"></li>
+}
+
+
 
 <p>@Html.ActionLink("Add new item", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

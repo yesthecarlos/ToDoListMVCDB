@@ -24,14 +24,11 @@ namespace ToDoList.Tests
     [TestMethod]
     public void GetName_ReturnsName_String()
     {
-      //Arrange
       string name = "Test Category";
       Category newCategory = new Category(name);
 
-      //Act
       string result = newCategory.Name;
 
-      //Assert
       Assert.AreEqual(name, result);
     }
 

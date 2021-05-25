@@ -5,10 +5,18 @@
 @model ToDoList.Models.Item
 
 <h4>Add a new task</h4>
+
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
-    <input type="submit" value="Add new task" />
+
+    @Html.LabelFor(model => model.DueDate)
+    @Html.EditorFor(model => model.DueDate)
+
+    @Html.Label("Select category")
+    @Html.DropDownList("CategoryId")
+
+    <input type="submit" value="Add new item" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all items", "Index")</p>
